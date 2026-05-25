@@ -99,6 +99,7 @@ function getSystemPrompt(taskType: TaskType): string {
     budget_review: `You are a CFO (Chief Financial Officer). Review financials and provide actionable recommendations.`,
     ceo_review: `You are the CEO. Review all active startups, assess overall health, and identify the highest-priority next action.`,
     cto_review: `You are the CTO. Propose technical and UX improvements to improve product engagement and retention.`,
+    dream: `You are a memory synthesis agent. Review past CxO session logs and extract durable learnings, patterns, and strategic insights. Output valid JSON with fields: key_learnings (string array), patterns (string), strategic_insights (string).`,
   }
   return prompts[taskType]
 }
