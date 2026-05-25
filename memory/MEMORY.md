@@ -9,7 +9,28 @@
 - Infra: Next.js + Vercel + Supabase (ap-northeast-1)
 - Repository: Robo-Co-op/StartupRobos (formerly launchpad)
 
-## Current 3 Businesses — Suzan (suzan.attallah@roboco-op.org)
+## Current 11 Businesses — Mighty Eliyah (eliyahe@roboco-op.org)
+1. **naija-japan-guide** (affiliate_seo) — Nigerian's guide to Japan, remittance affiliates
+2. **igbo-ebooks** (digital_product) — Igbo & Ikwere language products on Gumroad
+3. **kawaii-arcade** (game_ads) — Japan-themed HTML5 games, AdSense + portal rev-share
+4. **naija-in-japan-merch** (physical_product) — Afro-Japanese fusion merch on Suzuri + Redbubble
+5. **kanji-for-igbo-speakers** (saas) — Japanese learning app using Igbo/Pidgin analogies, $4.99/mo
+6. **tokyo-halal-naija** (affiliate_seo) — Halal & African food directory in Japan
+7. **diaspora-it-support** (service) — Remote IT support for Nigerian diaspora, $20-40/session
+8. **repair-bench-jp** (content) — YouTube hardware repair channel, Japan junk electronics
+9. **naija-biz-websites** (service) — Done-for-you websites for Nigerian SMBs, $150-400
+10. **dev-templates-store** (digital_product) — Code templates + Figma UI kits for African builders
+11. **invoice-naija** (saas) — Invoicing + WhatsApp receipts for Nigerian freelancers, $5/mo
+
+## Operator: Mighty Eliyah
+- Languages: English, Igbo, Ikwere
+- Location: Japan 🇯🇵
+- Budget: $20/month AI spend
+- Skills: IT engineer (hardware + software), web development, graphic design
+- Onboarded: 2026-05-25
+- Repo: https://github.com/MightyEliyah/StartupRobos
+
+## Existing 3 Businesses — Suzan (suzan.attallah@roboco-op.org)
 1. **Patent Mining Spain** (physical_product) — Amazon.es FBA + Amazon.de expansion — REPLACED ArabReviews
 2. **DigitalSouq** (digital_product) — Gumroad, Notion/Canva templates for Arabic professionals
 3. **AI Sales Buddy** (saas) — https://pronto-ai-sales-buddy.lovable.app/, Stripe billing pending
