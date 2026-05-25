@@ -10,7 +10,7 @@ Gumroad storefront selling Igbo and Ikwere language learning products: audio pac
 
 | Channel | Account | Status |
 |---------|---------|--------|
-| Gumroad | — | pending |
+| Gumroad | [gumroad.com/dashboard](https://gumroad.com/dashboard) | ✅ live |
 | Payhip (backup) | — | pending |
 | Email list (ConvertKit free) | — | pending |
 

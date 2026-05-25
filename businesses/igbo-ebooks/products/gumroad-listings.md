@@ -1,6 +1,6 @@
 # Gumroad Listing Copy — Akwukwo: Igbo & Ikwere Learning Vault
 
-> Store URL: igbo-ebooks.gumroad.com
+> Store URL: gumroad.com/eliyahe-roboco-op
 > Operator: Mighty Eliyah | Nigerian (Igbo/Ikwere) living in Japan
 > Audience: Diaspora Nigerians (UK, USA, Japan, Canada, Germany), language learners, heritage speakers
 

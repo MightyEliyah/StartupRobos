@@ -141,10 +141,10 @@ If you are raising children outside Nigeria, this name is one of the most durabl
 
 ---
 
-> **Want more?** Visit **Akwukwo — igbo-ebooks.gumroad.com**
+> **Want more?** Visit **Akwukwo — gumroad.com/eliyahe-roboco-op**
 > Full Igbo phrasebooks, Ikwere audio packs, proverb collections, and complete learning bundles — built for diaspora families, by Nigerians who live abroad.
 
 ---
 
 *This guide is free to share. Please pass it on to any parent who needs it.*
-*© Akwukwo — igbo-ebooks.gumroad.com*
+*© Akwukwo — gumroad.com/eliyahe-roboco-op*

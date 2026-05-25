@@ -10,7 +10,7 @@ Print-on-demand store on Suzuri (JPY payouts) and Redbubble (global) selling Afr
 
 | Channel | Account | Status |
 |---------|---------|--------|
-| Suzuri (JP market) | — | pending |
+| Suzuri (JP market) | [Bestmighty101](https://suzuri.jp/Bestmighty101/products) | ✅ live |
 | Redbubble (global) | — | pending |
 
 ## Current experiments
