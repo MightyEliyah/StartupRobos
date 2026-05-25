@@ -4,73 +4,140 @@ import { requireCronAuth } from '@/lib/auth'
 import { runHeartbeatTask } from '@/lib/agent/heartbeatRunner'
 import type { TaskType } from '@/lib/agent/responseSchemas'
 
-// CXO heartbeat runs 5 parallel AI calls
+// CXO heartbeat — dynamic, works for any operator's businesses
 export const maxDuration = 300
 
-// Business-specific CXO tasks (CMO + CTO)
-// Operator: Suzan Attallah — physical_product / digital_product / saas
-const BUSINESS_TASKS: Record<string, { role: string; prompt: string; task_type: TaskType }> = {
-  physical_product: {
-    role: 'CTO',
-    task_type: 'mvp_spec',
-    prompt: `You are the CTO of Patent Mining Spain. The business finds expired USPTO patents in kitchen/garden/pet categories, manufactures via Alibaba, and sells on Amazon.es FBA.
-Propose 3 specific actions to advance the technical pipeline this week:
-1. USPTO PatentsView scraper improvements (filters, data quality)
-2. Claude scoring prompt optimizations (better product-market fit detection for Spain)
-3. Amazon.es listing automation ideas (Spanish SEO, image generation)
-Keep each proposal to 2-3 lines.`,
-  },
-  digital_product: {
-    role: 'CMO',
-    task_type: 'market_research',
-    prompt: `You are the CMO of DigitalSouq — a Gumroad store selling Notion templates, Canva templates, and AI prompt packs to Arabic-speaking professionals in MENA (Egypt, Saudi Arabia, UAE).
-Propose 3 specific customer acquisition actions for this week:
-1. Arabic social media channel strategy (Telegram groups, Facebook)
-2. Gumroad listing SEO improvements (Arabic keywords)
-3. Bundle or upsell opportunity to increase average order value
-Keep each proposal to 2-3 lines.`,
-  },
-  saas: {
-    role: 'CTO',
-    task_type: 'mvp_spec',
-    prompt: `You are the CTO of AI Sales Buddy (Pronto) — a SaaS AI widget that automates lead capture and demo booking for B2B companies. Built on Lovable.dev. URL: https://pronto-ai-sales-buddy.lovable.app/
-Propose 3 specific technical actions to unlock first revenue this week:
-1. Stripe pricing page implementation (3 tiers: $29/$79/$199)
-2. Arabic UI toggle for MENA B2B market
-3. One quick win to improve landing page conversion rate
-Keep each proposal to 2-3 lines.`,
-  },
+/** Assign the right CXO role + task based on business type */
+function getCxoTask(businessType: string, name: string, description: string): {
+  role: string
+  task_type: TaskType
+  systemPrompt: string
+  prompt: string
+} {
+  const base = businessType.replace('custom:', '')
+
+  switch (base) {
+    case 'affiliate_seo':
+      return {
+        role: 'CMO',
+        task_type: 'market_research',
+        systemPrompt: 'You are the CMO of StartupRobos. Provide specific, actionable SEO and content recommendations.',
+        prompt: `You are the CMO responsible for "${name}" — ${description}
+
+Propose 3 specific actions for this week:
+1. Top 3 long-tail keyword clusters to target (with search intent)
+2. One cornerstone article to write this week (title + outline in 5 bullets)
+3. One affiliate or monetization angle to add
+
+Be specific. No generic advice.`,
+      }
+
+    case 'digital_product':
+      return {
+        role: 'CMO',
+        task_type: 'market_research',
+        systemPrompt: 'You are the CMO of StartupRobos. Focus on digital product launches and email list growth.',
+        prompt: `You are the CMO responsible for "${name}" — ${description}
+
+Propose 3 specific actions for this week:
+1. One product to create or improve (with exact title and price)
+2. One traffic source to activate (Pinterest / Reddit / TikTok — with specific subreddit or board name)
+3. One email capture tactic to deploy this week
+
+Be specific. No generic advice.`,
+      }
+
+    case 'game_ads':
+      return {
+        role: 'CTO',
+        task_type: 'mvp_spec',
+        systemPrompt: 'You are the CTO of StartupRobos. Focus on building and deploying HTML5 games fast.',
+        prompt: `You are the CTO responsible for "${name}" — ${description}
+
+Propose 3 specific technical actions for this week:
+1. One new HTML5 game concept to build (name, mechanic, Japan-themed twist)
+2. One portal submission to complete this week (Poki / CrazyGames / GameDistribution — with submission checklist)
+3. One technical improvement to increase ad revenue (eCPM optimization, load speed, mobile UX)
+
+Be specific and actionable.`,
+      }
+
+    case 'saas':
+      return {
+        role: 'CTO',
+        task_type: 'mvp_spec',
+        systemPrompt: 'You are the CTO of StartupRobos. Focus on shipping SaaS MVPs fast with Next.js and Supabase.',
+        prompt: `You are the CTO responsible for "${name}" — ${description}
+
+Propose 3 specific technical actions for this week:
+1. The single most important feature to ship this week (with implementation approach)
+2. One onboarding improvement to reduce drop-off
+3. One integration or automation to add (Paystack, WhatsApp API, Stripe, etc.)
+
+Be specific. Assume Next.js + Supabase + Vercel stack.`,
+      }
+
+    case 'service':
+      return {
+        role: 'COO',
+        task_type: 'ops_review',
+        systemPrompt: 'You are the COO of StartupRobos. Focus on getting the first paying clients for service businesses.',
+        prompt: `You are the COO responsible for "${name}" — ${description}
+
+Propose 3 specific actions to get the first 3 paying clients this week:
+1. Best outreach channel this week (which Facebook group / community / platform + exact message template)
+2. One process improvement to deliver the service faster or better
+3. One upsell or package to add
+
+Be specific and tactical.`,
+      }
+
+    case 'content':
+      return {
+        role: 'CMO',
+        task_type: 'market_research',
+        systemPrompt: 'You are the CMO of StartupRobos. Focus on YouTube and content channel growth.',
+        prompt: `You are the CMO responsible for "${name}" — ${description}
+
+Propose 3 specific content actions for this week:
+1. Best video concept to film this week (title, hook, thumbnail concept)
+2. One SEO-optimized YouTube title + description for the next upload
+3. One community or platform to post clips (TikTok / Instagram Reels / Twitter) with caption idea
+
+Be specific. Assume the creator is based in Japan with access to Hard-Off, Akihabara, and Japanese electronics.`,
+      }
+
+    case 'physical_product':
+      return {
+        role: 'CMO',
+        task_type: 'market_research',
+        systemPrompt: 'You are the CMO of StartupRobos. Focus on print-on-demand design and social media growth.',
+        prompt: `You are the CMO responsible for "${name}" — ${description}
+
+Propose 3 specific actions for this week:
+1. One new design concept to create (visual description + target product type on Suzuri/Redbubble)
+2. One social media post to make this week (platform + exact caption + hashtags)
+3. One community or event to target (African community in Japan / Japanese diaspora interest group)
+
+Be specific and creative.`,
+      }
+
+    default:
+      return {
+        role: 'COO',
+        task_type: 'ops_review',
+        systemPrompt: 'You are the COO of StartupRobos. Help this business make progress this week.',
+        prompt: `You are the COO responsible for "${name}" — ${description}
+
+Propose 3 specific next actions to make progress this week:
+1. The single most important task to move this business forward
+2. One quick win that can be done in under 2 hours
+3. One metric to track this week to measure success
+
+Be specific and actionable.`,
+      }
+  }
 }
-
-// Cross-functional CXO tasks (COO + CFO) — common across all businesses
-const CROSS_CXO_TASKS: Array<{ role: string; task_type: TaskType; prompt: string }> = [
-  {
-    role: 'COO',
-    task_type: 'ops_review',
-    prompt: `You are the COO (Chief Operating Officer) of Launchpad — operator: Suzan Attallah, Egypt. Review the operations of these 3 businesses:
-- Patent Mining Spain (Python pipeline → USPTO → Amazon.es FBA, physical_product) — Phase 1: pipeline setup
-- DigitalSouq (Gumroad store, digital_product) — Arabic templates and AI prompt packs
-- AI Sales Buddy / Pronto (Lovable.dev SaaS, saas) — https://pronto-ai-sales-buddy.lovable.app/
-
-Report on:
-1. Any deployment or pipeline blockers for each business
-2. Critical operations tasks to prioritize this week
-3. One automation opportunity that reduces manual work`,
-  },
-  {
-    role: 'CFO',
-    task_type: 'budget_review',
-    prompt: `You are the CFO (Chief Financial Officer) of Launchpad — operator: Suzan Attallah, monthly budget $500. Review the monetization status of these 3 businesses:
-- Patent Mining Spain: Amazon.es FBA (pending seller account — €39/month one-way door), unit economics: €14.99 sale / €7.19 net profit (48%)
-- DigitalSouq: Gumroad (products $7-$12, bundle $19 — all pending launch)
-- AI Sales Buddy: Stripe subscriptions ($29/$79/$199/month — pending implementation)
-
-Report on:
-1. Month 1 revenue forecast (realistic, given current setup stage)
-2. Priority investment: which business should receive first spend and why
-3. Current API cost burn rate and runway at $500/month budget`,
-  },
-]
 
 export async function GET(req: NextRequest) {
   const authError = requireCronAuth(req)
@@ -80,45 +147,46 @@ export async function GET(req: NextRequest) {
 
   const { data: startups } = await supabase
     .from('startups')
-    .select('id, name, business_type')
+    .select('id, name, business_type, description, status')
     .eq('status', 'active')
 
   if (!startups?.length) {
-    return NextResponse.json({ message: 'No startups found' })
+    return NextResponse.json({ message: 'No active startups found' })
   }
 
-  // Business-specific (CMO / CTO) + Cross-functional (COO / CFO) を並列実行
-  const businessPromises = startups
-    .filter(s => BUSINESS_TASKS[s.business_type])
-    .map(async startup => {
-      const task = BUSINESS_TASKS[startup.business_type]
-      const { content, costUsd } = await runHeartbeatTask(supabase, {
-        model: 'claude-sonnet-4-6',
-        maxTokens: 800,
-        prompt: task.prompt,
-        systemPrompt: `You are the ${task.role} of Launchpad. Provide actionable and specific recommendations.`,
-        startupId: startup.id,
-        taskType: task.task_type,
-      })
-      return { startup: startup.name, role: task.role, suggestions: content, costUsd }
-    })
+  // Run one CXO task per startup in parallel
+  const taskPromises = startups.map(async startup => {
+    const task = getCxoTask(
+      startup.business_type ?? 'service',
+      startup.name,
+      startup.description ?? ''
+    )
 
-  const crossPromises = CROSS_CXO_TASKS.map(async task => {
     const { content, costUsd } = await runHeartbeatTask(supabase, {
       model: 'claude-sonnet-4-6',
       maxTokens: 800,
       prompt: task.prompt,
-      systemPrompt: `You are the ${task.role} of Launchpad. Provide actionable and specific recommendations.`,
-      startupId: startups[0].id,
+      systemPrompt: task.systemPrompt,
+      startupId: startup.id,
       taskType: task.task_type,
     })
-    return { role: task.role, report: content, costUsd }
+
+    return {
+      startup: startup.name,
+      business_type: startup.business_type,
+      role: task.role,
+      actions: content,
+      costUsd,
+    }
   })
 
-  const allResults = await Promise.all([...businessPromises, ...crossPromises])
+  const allResults = await Promise.all(taskPromises)
   const totalCost = allResults.reduce((sum, r) => sum + r.costUsd, 0)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const results = allResults.map(({ costUsd: _costUsd, ...rest }) => rest)
 
-  return NextResponse.json({ ok: true, total_cost_usd: totalCost, results })
+  return NextResponse.json({
+    ok: true,
+    total_cost_usd: totalCost,
+    businesses_processed: allResults.length,
+    results: allResults.map(({ costUsd: _c, ...rest }) => rest),
+  })
 }
