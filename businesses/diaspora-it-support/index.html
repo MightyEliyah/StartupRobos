@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diaspora IT Desk — Remote Tech Support for Nigerians Abroad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── Tokens ─── */
+    :root {
+      --green-dark:  #2d6a4f;
+      --green-mid:   #40916c;
+      --green-light: #74c69d;
+      --green-pale:  #d8f3dc;
+      --white:       #ffffff;
+      --off-white:   #f8fdf9;
+      --text-muted:  #555;
+      --radius:      12px;
+      --shadow:      0 4px 20px rgba(45,106,79,.12);
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid #e5e5e5;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand .flag { font-size: 1.3rem; }
+    .nav-cta {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--green-mid); }
+
+    /* ─── Hero ─── */
+    #hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 24px 90px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      margin-bottom: 24px;
+    }
+    #hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      max-width: 720px;
+      margin: 0 auto 16px;
+    }
+    #hero h1 span { color: #b7e4c7; }
+    #hero p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      opacity: .92;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--white);
+      color: var(--green-dark);
+      padding: 15px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,.15);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      padding: 15px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .15s, background .15s;
+    }
+    .btn-whatsapp:hover { transform: translateY(-2px); background: #1fb855; }
+    .whatsapp-icon {
+      width: 22px; height: 22px;
+      fill: var(--white);
+    }
+    .hero-trust {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-size: .85rem;
+      opacity: .85;
+    }
+    .hero-trust span::before { content: "✓ "; font-weight: 700; }
+
+    /* ─── Section base ─── */
+    section { padding: 72px 24px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--green-mid);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 48px;
+    }
+
+    /* ─── Services ─── */
+    #services { background: var(--off-white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 22px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--green-light);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(45,106,79,.18);
+    }
+    .service-icon { font-size: 2rem; margin-bottom: 14px; }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      font-size: .875rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .service-price {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 6px 16px;
+      border-radius: 50px;
+    }
+
+    /* ─── How it works ─── */
+    #how-it-works { background: var(--white); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .step-num {
+      width: 52px; height: 52px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .step h3 { font-size: 1.1rem; font-weight: 700; color: #111; }
+    .step p  { font-size: .9rem; color: var(--text-muted); }
+    .step-connector {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .steps { grid-template-columns: 1fr 40px 1fr 40px 1fr; align-items: start; }
+      .step-connector {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 24px;
+        justify-content: center;
+        color: var(--green-light);
+        font-size: 1.6rem;
+        font-weight: 300;
+      }
+    }
+
+    /* ─── Why Us ─── */
+    #why-us { background: var(--green-dark); color: var(--white); }
+    #why-us .section-title { color: var(--white); }
+    #why-us .section-sub  { color: rgba(255,255,255,.75); }
+    #why-us .section-label { color: var(--green-light); }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .trust-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      transition: background .2s;
+    }
+    .trust-card:hover { background: rgba(255,255,255,.14); }
+    .trust-icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .trust-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .trust-card p  { font-size: .875rem; opacity: .8; line-height: 1.6; }
+
+    /* ─── Book Now ─── */
+    #book { background: var(--off-white); text-align: center; }
+    .book-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .calendly-placeholder {
+      background: var(--white);
+      border: 2px dashed var(--green-light);
+      border-radius: var(--radius);
+      padding: 48px 24px;
+      margin-bottom: 32px;
+      color: var(--text-muted);
+    }
+    .calendly-placeholder .cal-icon { font-size: 3rem; margin-bottom: 12px; }
+    .calendly-placeholder p { font-size: .95rem; }
+    .calendly-placeholder a {
+      color: var(--green-dark);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .book-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: .85rem;
+      margin-bottom: 28px;
+    }
+    .book-divider::before,
+    .book-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+    .whatsapp-block {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+    }
+    .whatsapp-block h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .whatsapp-block p  { font-size: .875rem; color: var(--text-muted); margin-bottom: 20px; }
+    .btn-whatsapp-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: var(--white);
+      padding: 15px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-whatsapp-large:hover { background: #1fb855; transform: translateY(-2px); }
+    .wa-icon-lg { width: 26px; height: 26px; fill: var(--white); }
+
+    /* ─── Footer ─── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,.65);
+      text-align: center;
+      padding: 36px 24px;
+      font-size: .85rem;
+    }
+    footer strong { color: var(--white); }
+    footer .footer-flags { font-size: 1.4rem; margin-bottom: 8px; }
+
+    /* ─── Responsive tweaks ─── */
+    @media (max-width: 600px) {
+      #hero { padding: 56px 20px 64px; }
+      section { padding: 52px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <div class="nav-brand">
+      <span class="flag">🇳🇬</span>
+      Diaspora IT Desk
+    </div>
+    <a class="nav-cta" href="#book">Book a Session — $25</a>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="hero-badge">🌍 Remote IT Support · Nigeria · Diaspora</div>
+    <h1>Stuck with a tech problem?<br /><span>Get it fixed in plain English.</span></h1>
+    <p>Real IT support — explained clearly in <strong>Igbo or English</strong> — from a qualified engineer based in Japan. No jargon. No hassle. Just fixed.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#book">📅 Book a Session — $25</a>
+      <a class="btn-whatsapp" href="https://wa.me/81000000000?text=Hi%2C%20I%20need%20IT%20support" target="_blank" rel="noopener">
+        <!-- WhatsApp SVG -->
+        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp Me
+      </a>
+    </div>
+    <div class="hero-trust">
+      <span>Same-day response</span>
+      <span>Igbo &amp; English</span>
+      <span>Japan timezone (JST)</span>
+      <span>Hardware + Software</span>
+    </div>
+  </section>
+
+  <!-- ── Services ── -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label">Services &amp; Pricing</p>
+      <h2 class="section-title">What can I fix for you?</h2>
+      <p class="section-sub">Flat-rate sessions — no hidden fees. Pay only after the problem is solved.</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🦠</div>
+          <h3>Virus &amp; Malware Removal</h3>
+          <p>Full scan, clean-up, and browser reset. Your PC protected and running clean again.</p>
+          <span class="service-price">$25</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💿</div>
+          <h3>Windows Reinstall</h3>
+          <p>Fresh OS install with drivers restored. Slow machine? Crashes? Solved.</p>
+          <span class="service-price">$35</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💾</div>
+          <h3>Data Recovery</h3>
+          <p>Recover deleted files, photos, and documents from failing or wiped drives.</p>
+          <span class="service-price">$40</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📡</div>
+          <h3>Router &amp; Network Setup</h3>
+          <p>Get your home Wi-Fi properly configured — fast, secure, no dead zones.</p>
+          <span class="service-price">$20</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📧</div>
+          <h3>Email Migration</h3>
+          <p>Move all your emails, contacts, and calendar from any provider — nothing lost.</p>
+          <span class="service-price">$25</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>PC Tune-Up</h3>
+          <p>Speed up a sluggish computer — startup clean-up, storage optimisation, and more.</p>
+          <span class="service-price">$20</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it works ── -->
+  <section id="how-it-works">
+    <div class="section-inner">
+      <p class="section-label">Process</p>
+      <h2 class="section-title">Fixed in 3 simple steps</h2>
+      <p class="section-sub">No tech knowledge required on your end. I handle everything remotely — you just watch.</p>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Book a Session</h3>
+            <p>Pick a time slot on Calendly or drop me a WhatsApp message. Tell me the problem — in English or Igbo.</p>
+          </div>
+        </div>
+
+        <div class="step-connector">→</div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Connect via AnyDesk</h3>
+            <p>Download the free AnyDesk app and share your ID. I connect securely — you can see every move I make.</p>
+          </div>
+        </div>
+
+        <div class="step-connector">→</div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Problem Fixed</h3>
+            <p>I resolve the issue, walk you through what I did, and confirm everything works before the session ends.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why Us ── -->
+  <section id="why-us">
+    <div class="section-inner">
+      <p class="section-label">Why Diaspora IT Desk</p>
+      <h2 class="section-title">Support that actually understands you</h2>
+      <p class="section-sub">I'm not a call-centre script. I'm a Nigerian engineer who gets what diaspora life looks like.</p>
+      <div class="trust-grid">
+
+        <div class="trust-card">
+          <div class="trust-icon">🗣️</div>
+          <h3>Igbo &amp; English — No Jargon</h3>
+          <p>Speak to me in Igbo, Ikwere, or English. I explain the problem and the fix in a way that makes sense to you — no confusing tech-speak.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">🕐</div>
+          <h3>Japan Timezone (JST)</h3>
+          <p>Based in Japan, I cover early morning and evening slots that align perfectly with Nigeria, UK, and US diaspora schedules.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">🛠️</div>
+          <h3>Qualified Engineer — Hardware &amp; Software</h3>
+          <p>Not just software tricks — I have full hardware and software training. Whether it's a virus, a broken driver, or a failing disk, I can diagnose it properly.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Book Now ── -->
+  <section id="book">
+    <div class="section-inner">
+      <p class="section-label">Ready to get started?</p>
+      <h2 class="section-title" style="text-align:center;">Book your session now</h2>
+      <p class="section-sub" style="margin:0 auto 40px; text-align:center;">Choose the option that works best for you.</p>
+      <div class="book-inner">
+
+        <!-- Calendly embed placeholder -->
+        <div class="calendly-placeholder">
+          <div class="cal-icon">📅</div>
+          <p><strong>Calendly Booking Widget</strong></p>
+          <p style="margin-top:8px;">To activate, replace this block with your Calendly embed code.<br />
+          Visit <a href="https://calendly.com" target="_blank" rel="noopener">calendly.com</a>, create a free account, and paste the inline embed snippet here.</p>
+        </div>
+
+        <div class="book-divider">or message me directly</div>
+
+        <!-- WhatsApp block -->
+        <div class="whatsapp-block">
+          <h3>Chat on WhatsApp</h3>
+          <p>Describe your problem in English or Igbo — I'll reply within a few hours and we'll find a time to fix it.</p>
+          <a class="btn-whatsapp-large"
+             href="https://wa.me/81000000000?text=Hi%2C%20I%20need%20IT%20support%20with..."
+             target="_blank"
+             rel="noopener">
+            <svg class="wa-icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Message on WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-flags">🇳🇬 🇯🇵</div>
+    <p><strong>Diaspora IT Desk</strong> — Remote tech support for Nigerians abroad</p>
+    <p style="margin-top:6px;">Based in Japan &nbsp;·&nbsp; Serving diaspora worldwide &nbsp;·&nbsp; English &amp; Igbo support</p>
+    <p style="margin-top:14px; font-size:.78rem; opacity:.55;">© 2025 Diaspora IT Desk. Part of the MightyEliyah StartupRobos portfolio.</p>
+  </footer>
+
+</body>
+</html>

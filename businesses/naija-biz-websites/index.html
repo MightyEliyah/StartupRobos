@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NaijaBiz Sites — Professional Websites for Nigerian Businesses</title>
+  <meta name="description" content="Professional, affordable websites for Nigerian small businesses. Salons, tailors, food vendors, freight companies. Starting at $150. Ready in 3 days." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:      #008751;
+      --green-dark: #006640;
+      --green-light:#00a864;
+      --gold:       #FFD700;
+      --gold-dark:  #e6c200;
+      --white:      #ffffff;
+      --off-white:  #f8faf8;
+      --gray-100:   #f3f4f6;
+      --gray-200:   #e5e7eb;
+      --gray-500:   #6b7280;
+      --gray-700:   #374151;
+      --gray-900:   #111827;
+      --radius:     12px;
+      --radius-lg:  20px;
+      --shadow:     0 4px 24px rgba(0,0,0,0.09);
+      --shadow-lg:  0 8px 40px rgba(0,0,0,0.14);
+      --transition: 0.22s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-900);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── Utility ─── */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .section { padding: 80px 0; }
+    .section-label {
+      display: inline-block;
+      background: rgba(0,135,81,0.1);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--gray-500);
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+    .center { text-align: center; }
+    .center .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      white-space: nowrap;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(0,135,81,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      box-shadow: 0 8px 28px rgba(0,135,81,0.45);
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--gray-900);
+      box-shadow: 0 4px 20px rgba(255,215,0,0.35);
+    }
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      box-shadow: 0 8px 28px rgba(255,215,0,0.45);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.7);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--white);
+    }
+    .btn-lg { padding: 18px 38px; font-size: 18px; }
+    .btn svg { flex-shrink: 0; width: 20px; height: 20px; }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--gray-900); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { display: flex; gap: 12px; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      background: linear-gradient(135deg, #004d2e 0%, #008751 55%, #00a864 100%);
+      color: var(--white);
+      padding: 100px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 800px 600px at 70% 50%, rgba(255,215,0,0.08) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,215,0,0.18);
+      border: 1px solid rgba(255,215,0,0.4);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero h1 .highlight {
+      color: var(--gold);
+      position: relative;
+    }
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 40px;
+      line-height: 1.55;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero-stat-num {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+    }
+
+    /* ─── Problem/Solution ─── */
+    .problem { background: var(--off-white); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+    .pain-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+    }
+    .pain-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      background: #fff3f3;
+    }
+    .pain-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--gray-900); }
+    .pain-item p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+
+    .solution-card {
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      color: var(--white);
+      box-shadow: 0 12px 48px rgba(0,135,81,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-card::after {
+      content: '✓';
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      font-size: 160px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+    }
+    .solution-card h3 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+    .solution-points { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .solution-points li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 16px;
+    }
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 12px;
+    }
+
+    /* ─── Pricing ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .pricing-card.popular {
+      border-color: var(--green);
+      box-shadow: 0 8px 40px rgba(0,135,81,0.18);
+      transform: scale(1.04);
+    }
+    .pricing-card.popular:hover {
+      transform: scale(1.04) translateY(-6px);
+    }
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .pricing-name {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .pricing-price {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--gray-900);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-price sup { font-size: 22px; vertical-align: super; font-weight: 700; }
+    .pricing-delivery {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .pricing-divider {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin-bottom: 24px;
+    }
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .pricing-features li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 15px;
+      color: var(--gray-700);
+    }
+    .feat-check {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .pricing-card .btn { width: 100%; justify-content: center; }
+
+    /* Maintenance card */
+    .maintenance-card {
+      background: linear-gradient(135deg, var(--gray-900) 0%, #1f2937 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      color: var(--white);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      box-shadow: var(--shadow-lg);
+    }
+    .maintenance-left h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .maintenance-left p { font-size: 15px; color: rgba(255,255,255,0.7); }
+    .maintenance-price {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .maintenance-price span { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.6); }
+
+    /* ─── Portfolio ─── */
+    .portfolio { background: var(--off-white); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 768px) {
+      .portfolio-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    }
+    .portfolio-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .portfolio-mockup {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mockup-salon {
+      background: linear-gradient(135deg, #c471ed 0%, #f64f59 100%);
+    }
+    .mockup-freight {
+      background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+    }
+    .mockup-food {
+      background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+    }
+    .mockup-browser {
+      width: 80%;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 10px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .mockup-bar {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+    .mockup-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+    }
+    .mockup-url {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 4px;
+    }
+    .mockup-content {
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+      padding: 8px;
+    }
+    .mockup-line {
+      height: 6px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 3px;
+      margin-bottom: 6px;
+    }
+    .mockup-line.short { width: 60%; }
+    .mockup-line.med { width: 80%; }
+    .portfolio-info { padding: 24px; }
+    .portfolio-tag {
+      display: inline-block;
+      background: rgba(0,135,81,0.1);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+    .portfolio-info h4 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .portfolio-info p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+
+    /* ─── Process ─── */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    @media (max-width: 900px) {
+      .process-steps { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 28px);
+      right: calc(12.5% + 28px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      z-index: 0;
+    }
+    @media (max-width: 900px) {
+      .process-steps::before { display: none; }
+    }
+    .process-step { text-align: center; position: relative; z-index: 1; }
+    .process-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 16px rgba(0,135,81,0.3);
+      border: 3px solid var(--white);
+    }
+    .process-step h4 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--gray-900); }
+    .process-step p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+    .process-emoji {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    /* ─── Trust ─── */
+    .trust { background: var(--off-white); }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .trust-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    }
+    .trust-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .trust-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .trust-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      margin: 0 auto 20px;
+    }
+    .icon-green { background: rgba(0,135,81,0.1); }
+    .icon-gold  { background: rgba(255,215,0,0.15); }
+    .icon-blue  { background: rgba(59,130,246,0.1); }
+    .trust-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--gray-900); }
+    .trust-card p { font-size: 15px; color: var(--gray-500); line-height: 1.6; }
+
+    /* ─── CTA Section ─── */
+    .cta-section {
+      background: linear-gradient(135deg, #004d2e 0%, #008751 60%, #00a864 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 900px 600px at center, rgba(255,215,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section .container { position: relative; z-index: 1; }
+    .cta-section h2 {
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .cta-section p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 44px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .cta-note {
+      margin-top: 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 320px;
+    }
+    .footer-logo {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-col h5 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-flag { font-size: 18px; }
+
+    /* ─── WhatsApp Float ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+    }
+    .wa-float a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 22px;
+      border-radius: 100px;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .wa-float a:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 36px rgba(37,211,102,0.55);
+    }
+    .wa-float svg { width: 22px; height: 22px; }
+    @media (max-width: 480px) {
+      .wa-float a span { display: none; }
+      .wa-float a { padding: 14px; }
+    }
+
+    /* ─── Misc responsive ─── */
+    @media (max-width: 600px) {
+      .section { padding: 60px 0; }
+      .maintenance-card { flex-direction: column; text-align: center; }
+      .maintenance-price { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ───────────── NAV ───────────── -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-logo">NaijaBiz<span>Sites</span></div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://wa.me/819000000000?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.062.522 4.004 1.438 5.701L0 24l6.458-1.419A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.948 0-3.769-.524-5.33-1.437l-.383-.228-3.974.872.898-3.877-.251-.399A9.951 9.951 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ───────────── HERO ───────────── -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          🇳🇬&nbsp; Built for Nigerian Businesses
+        </div>
+        <h1>Your Business<br /><span class="highlight">Deserves a Website</span></h1>
+        <p class="hero-sub">
+          Professional websites for Nigerian businesses.<br />
+          Starting at <strong style="color:var(--gold);">$150</strong>. Ready in <strong style="color:var(--gold);">3 days</strong>.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/819000000000?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business.%20Please%20send%20me%20a%20free%20quote." class="btn btn-gold btn-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.062.522 4.004 1.438 5.701L0 24l6.458-1.419A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.948 0-3.769-.524-5.33-1.437l-.383-.228-3.974.872.898-3.877-.251-.399A9.951 9.951 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Get a Free Quote
+          </a>
+          <a href="#portfolio" class="btn btn-outline btn-lg">See Our Work</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">$150</div>
+            <div class="hero-stat-label">Starting price</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">3 Days</div>
+            <div class="hero-stat-label">Average delivery</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Mobile-friendly</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">🇳🇬+🇯🇵</div>
+            <div class="hero-stat-label">Nigeria × Japan speed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── PROBLEM / SOLUTION ───────────── -->
+  <section class="section problem" id="services">
+    <div class="container">
+      <div class="problem-grid">
+        <div>
+          <span class="section-label">The Problem</span>
+          <h2 class="section-title">Tired of losing customers to businesses with better websites?</h2>
+          <p class="section-sub">Every day without a website is customers going to your competitor. Here's what Nigerian SMBs face:</p>
+          <ul class="pain-list">
+            <li class="pain-item">
+              <div class="pain-icon">🚫</div>
+              <div>
+                <h4>No Online Presence</h4>
+                <p>Customers search on Google but can't find you. They find your competitor instead and you lose the sale before it even starts.</p>
+              </div>
+            </li>
+            <li class="pain-item">
+              <div class="pain-icon">💸</div>
+              <div>
+                <h4>Local Developers Are Too Expensive</h4>
+                <p>Lagos web agencies charge ₦500,000+ for basic sites, then disappear after payment. No support, no updates, no accountability.</p>
+              </div>
+            </li>
+            <li class="pain-item">
+              <div class="pain-icon">⏳</div>
+              <div>
+                <h4>Slow Delivery, Endless Delays</h4>
+                <p>"We'll deliver in 2 weeks" turns into 3 months. You've been waiting and meanwhile, your business has no web presence.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="solution-card">
+            <h3>We Fix All of That — Guaranteed</h3>
+            <ul class="solution-points">
+              <li>
+                <div class="check-icon">✓</div>
+                <span><strong>Professional website</strong> that ranks on Google and brings in customers 24/7</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span><strong>Transparent pricing</strong> — $150 to $400. No hidden fees, no surprises</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span><strong>3-day delivery</strong> — or we refund. We ship fast because we're engineers first</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span><strong>WhatsApp integration</strong> built in — customers contact you directly from your site</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span><strong>Igbo-speaking team</strong> — we understand your business context and speak your language</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span><strong>Ongoing support</strong> — $30/month keeps your site updated and running perfectly</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── PRICING ───────────── -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="center">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-sub">No hidden fees. No surprises. Pay once, own your site forever.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <!-- Landing Page -->
+        <div class="pricing-card">
+          <div class="pricing-name">Landing Page</div>
+          <div class="pricing-price"><sup>$</sup>150</div>
+          <div class="pricing-delivery">⚡ Ready in 2 days</div>
+          <hr class="pricing-divider" />
+          <ul class="pricing-features">
+            <li><span class="feat-check">✓</span> 1 beautifully designed page</li>
+            <li><span class="feat-check">✓</span> WhatsApp contact button</li>
+            <li><span class="feat-check">✓</span> Mobile-friendly design</li>
+            <li><span class="feat-check">✓</span> Google Maps embed</li>
+            <li><span class="feat-check">✓</span> Business hours display</li>
+            <li><span class="feat-check">✓</span> 1 round of revisions</li>
+          </ul>
+          <a href="https://wa.me/819000000000?text=Hi%2C%20I%27m%20interested%20in%20the%20Landing%20Page%20package%20($150)" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <!-- Business Site (POPULAR) -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">⭐ Most Popular</div>
+          <div class="pricing-name">Business Site</div>
+          <div class="pricing-price"><sup>$</sup>250</div>
+          <div class="pricing-delivery">⚡ Ready in 3 days</div>
+          <hr class="pricing-divider" />
+          <ul class="pricing-features">
+            <li><span class="feat-check">✓</span> 5 pages (Home, About, Services, Gallery, Contact)</li>
+            <li><span class="feat-check">✓</span> Contact form + WhatsApp</li>
+            <li><span class="feat-check">✓</span> Google Maps integration</li>
+            <li><span class="feat-check">✓</span> Mobile-first design</li>
+            <li><span class="feat-check">✓</span> Basic SEO setup</li>
+            <li><span class="feat-check">✓</span> Social media links</li>
+            <li><span class="feat-check">✓</span> 3 rounds of revisions</li>
+          </ul>
+          <a href="https://wa.me/819000000000?text=Hi%2C%20I%27m%20interested%20in%20the%20Business%20Site%20package%20($250)" class="btn btn-gold">Get Started</a>
+        </div>
+
+        <!-- E-Commerce -->
+        <div class="pricing-card">
+          <div class="pricing-name">E-Commerce</div>
+          <div class="pricing-price"><sup>$</sup>400</div>
+          <div class="pricing-delivery">⚡ Ready in 5 days</div>
+          <hr class="pricing-divider" />
+          <ul class="pricing-features">
+            <li><span class="feat-check">✓</span> Full online store</li>
+            <li><span class="feat-check">✓</span> Paystack checkout</li>
+            <li><span class="feat-check">✓</span> Product catalog</li>
+            <li><span class="feat-check">✓</span> Inventory management</li>
+            <li><span class="feat-check">✓</span> Order notifications</li>
+            <li><span class="feat-check">✓</span> WhatsApp order alerts</li>
+            <li><span class="feat-check">✓</span> Unlimited revisions</li>
+          </ul>
+          <a href="https://wa.me/819000000000?text=Hi%2C%20I%27m%20interested%20in%20the%20E-Commerce%20package%20($400)" class="btn btn-primary">Get Started</a>
+        </div>
+
+      </div>
+
+      <!-- Maintenance -->
+      <div class="maintenance-card">
+        <div class="maintenance-left">
+          <h3>Monthly Maintenance Plan</h3>
+          <p>Updates, hosting, backups &amp; support. We keep your site fast, secure, and up-to-date — so you can focus on running your business.</p>
+        </div>
+        <div style="text-align:center;">
+          <div class="maintenance-price">$30 <span>/ month</span></div>
+          <a href="https://wa.me/819000000000?text=Hi%2C%20I%27m%20interested%20in%20the%20monthly%20maintenance%20plan" class="btn btn-gold" style="margin-top:18px;">Add Maintenance</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── PORTFOLIO ───────────── -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <div class="center">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Sites Built for Nigerian Businesses</h2>
+        <p class="section-sub">From salons to freight companies — we build professional sites for every type of Nigerian SMB.</p>
+      </div>
+      <div class="portfolio-grid">
+
+        <!-- Lagos Salon -->
+        <div class="portfolio-card">
+          <div class="portfolio-mockup mockup-salon">
+            <div class="mockup-browser">
+              <div class="mockup-bar">
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+                <div class="mockup-url"></div>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-line" style="width:50%; height:10px; background:rgba(255,255,255,0.6); margin-bottom:10px;"></div>
+                <div class="mockup-line med"></div>
+                <div class="mockup-line short"></div>
+                <div class="mockup-line med"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Salon &amp; Beauty</span>
+            <h4>Lagos Salon</h4>
+            <p>5-page Business Site with online booking, gallery, and WhatsApp integration. Delivered in 3 days.</p>
+          </div>
+        </div>
+
+        <!-- Abuja Freight -->
+        <div class="portfolio-card">
+          <div class="portfolio-mockup mockup-freight">
+            <div class="mockup-browser">
+              <div class="mockup-bar">
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+                <div class="mockup-url"></div>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-line" style="width:65%; height:10px; background:rgba(255,255,255,0.6); margin-bottom:10px;"></div>
+                <div class="mockup-line short"></div>
+                <div class="mockup-line med"></div>
+                <div class="mockup-line" style="width:45%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Freight &amp; Logistics</span>
+            <h4>Abuja Freight Co.</h4>
+            <p>Corporate site with tracking info, service zones, quote request form, and Google Maps. 3-day delivery.</p>
+          </div>
+        </div>
+
+        <!-- PH Food Vendor -->
+        <div class="portfolio-card">
+          <div class="portfolio-mockup mockup-food">
+            <div class="mockup-browser">
+              <div class="mockup-bar">
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+                <div class="mockup-url"></div>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-line" style="width:55%; height:10px; background:rgba(255,255,255,0.6); margin-bottom:10px;"></div>
+                <div class="mockup-line med"></div>
+                <div class="mockup-line short"></div>
+                <div class="mockup-line" style="width:70%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Food &amp; Catering</span>
+            <h4>PH Food Vendor</h4>
+            <p>Landing page with menu display, Paystack payment link, and WhatsApp order button. Ready in 2 days.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── PROCESS ───────────── -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="center">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">From WhatsApp to Live Website in 4 Easy Steps</h2>
+        <p class="section-sub">No technical knowledge required. We handle everything.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <div class="process-emoji">💬</div>
+          <h4>WhatsApp Us</h4>
+          <p>Send us a message telling us about your business. We'll respond within 1 hour.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <div class="process-emoji">📋</div>
+          <h4>Share Business Details</h4>
+          <p>Tell us your services, prices, location, and send your logo (or we'll design one). That's all we need.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <div class="process-emoji">⚡</div>
+          <h4>We Build in 3 Days</h4>
+          <p>Our team builds your professional website. We send you a preview link for feedback and revisions.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <div class="process-emoji">🚀</div>
+          <h4>You Go Live</h4>
+          <p>We launch your site, set up your domain, and hand everything over. You start getting customers online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── TRUST ───────────── -->
+  <section class="section trust" id="trust">
+    <div class="container">
+      <div class="center">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Built by Someone Who Understands You</h2>
+        <p class="section-sub">We're not a faceless agency. We're Nigerian IT professionals who understand your market.</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon-wrap icon-blue">🇯🇵</div>
+          <h4>Based in Japan</h4>
+          <p>Japan-grade reliability — fast fiber internet, disciplined engineering standards, and 24/7 uptime. Your site won't go down during peak business hours.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon-wrap icon-green">🖥️</div>
+          <h4>IT Engineer + Web Developer</h4>
+          <p>Not just a designer — a full-stack IT engineer with hardware and software expertise. We build sites that are fast, secure, and built to last.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon-wrap icon-gold">🗣️</div>
+          <h4>Igbo-Speaking Team</h4>
+          <p>We speak English, Igbo, and Ikwere. We understand Nigerian business culture, market dynamics, and what your customers actually want to see.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CTA ───────────── -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Get Online?</h2>
+      <p>Join Nigerian businesses that already have professional websites. Your first consultation is free.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/819000000000?text=Hi%2C%20I%20want%20a%20website%20for%20my%20Nigerian%20business.%20Let%27s%20talk!" class="btn btn-gold btn-lg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.062.522 4.004 1.438 5.701L0 24l6.458-1.419A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.948 0-3.769-.524-5.33-1.437l-.383-.228-3.974.872.898-3.877-.251-.399A9.951 9.951 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Start on WhatsApp — It's Free
+        </a>
+        <a href="#pricing" class="btn btn-outline btn-lg">View Pricing</a>
+      </div>
+      <p class="cta-note">No contract required &nbsp;·&nbsp; Pay only when you approve the design &nbsp;·&nbsp; 3-day delivery guaranteed</p>
+    </div>
+  </section>
+
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">NaijaBiz<span>Sites</span></div>
+          <p>Professional, affordable websites for Nigerian small businesses. Salons, tailors, food vendors, freight companies — we build for every industry. Based in Japan, built for Nigeria.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#pricing">Landing Page — $150</a></li>
+            <li><a href="#pricing">Business Site — $250</a></li>
+            <li><a href="#pricing">E-Commerce — $400</a></li>
+            <li><a href="#pricing">Monthly Maintenance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="https://wa.me/819000000000">WhatsApp Us</a></li>
+            <li><a href="#portfolio">See Our Work</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#trust">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NaijaBiz Sites. All rights reserved.</p>
+        <p>
+          <span class="footer-flag">🇳🇬</span>
+          Built for Nigeria &nbsp;·&nbsp;
+          <span class="footer-flag">🇯🇵</span>
+          Powered from Japan
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ───────────── WHATSAPP FLOAT ───────────── -->
+  <div class="wa-float">
+    <a href="https://wa.me/819000000000?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business!" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.062.522 4.004 1.438 5.701L0 24l6.458-1.419A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.948 0-3.769-.524-5.33-1.437l-.383-.228-3.974.872.898-3.877-.251-.399A9.951 9.951 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <span>Chat on WhatsApp</span>
+    </a>
+  </div>
+
+</body>
+</html>
