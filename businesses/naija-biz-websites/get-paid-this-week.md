@@ -2,7 +2,7 @@
 
 Goal: **first paid website ($150+) within 7–10 days.**
 
-## 1. Payment setup (one-time — shared with Diaspora IT Desk)
+## 1. Payment setup (one-time — shared with Fixit IT Support)
 
 Use the same accounts as `../diaspora-it-support/get-paid-this-week.md`:
 - **PayPal.Me link**: for diaspora clients paying in USD/GBP

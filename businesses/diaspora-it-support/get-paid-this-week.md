@@ -1,4 +1,4 @@
-# Diaspora IT Desk — Get Paid This Week
+# Fixit IT Support — Get Paid This Week
 
 Goal: **first paid session ($20–40) within 7 days.**
 

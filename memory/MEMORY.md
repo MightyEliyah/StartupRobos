@@ -16,7 +16,7 @@
 4. **naija-in-japan-merch** (physical_product) — Afro-Japanese fusion merch on Suzuri + Redbubble
 5. **kanji-for-igbo-speakers** (saas) — Japanese learning app using Igbo/Pidgin analogies, $4.99/mo
 6. **tokyo-halal-naija** (affiliate_seo) — Halal & African food directory in Japan
-7. **diaspora-it-support** (service) — Remote IT support for Nigerian diaspora, $20-40/session
+7. **diaspora-it-support** (service) — Fixit IT Support: remote IT support worldwide, 27 services, English-only marketing (renamed from Diaspora IT Desk 2026-10-05)
 8. **repair-bench-jp** (content) — YouTube hardware repair channel, Japan junk electronics
 9. **naija-biz-websites** (service) — Done-for-you websites for Nigerian SMBs, $150-400
 10. **dev-templates-store** (digital_product) — Code templates + Figma UI kits for African builders

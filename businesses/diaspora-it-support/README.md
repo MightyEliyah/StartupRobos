@@ -1,4 +1,4 @@
-# `diaspora-it-support` — Diaspora IT Desk: Remote Tech Support for Nigerians Abroad
+# `diaspora-it-support` — Fixit IT Support: Remote Tech Support Worldwide
 
 Remote IT support service for customers worldwide, marketed in English only (operator also speaks Japanese, Igbo, Ikwere). 27 services across 7 categories, live at https://mightyeliyah-startuprobos.vercel.app/it-support. Support via AnyDesk/TeamViewer. Fixed-price packages: virus removal, Windows reinstall, data recovery, router setup, email migration. Paid via Wise/PayPal in USD/JPY.
 
