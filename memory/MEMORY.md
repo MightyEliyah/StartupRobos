@@ -23,7 +23,8 @@
 11. **invoice-naija** (saas) — Invoicing + WhatsApp receipts for Nigerian freelancers, $5/mo
 
 ## Operator: Mighty Eliyah
-- Languages: English, Igbo, Ikwere
+- Languages: English, Japanese, Igbo, Ikwere
+- Marketing language: English only on all customer-facing pages (business is worldwide). Other languages appear only as a "Speaks English, Japanese, Igbo & Ikwere" line. (decided 2026-10-05)
 - Location: Japan 🇯🇵
 - Budget: $20/month AI spend
 - Skills: IT engineer (hardware + software), web development, graphic design

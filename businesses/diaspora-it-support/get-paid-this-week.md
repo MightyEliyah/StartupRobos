@@ -44,16 +44,17 @@ Same list as the landing page. Remove anything you don't want to offer.
 | 🤖 AI & ChatGPT | ChatGPT setup & 1-hr training | $30 |
 | | AI for your business | $60 |
 | | Custom GPT assistant | from $80 |
-| 🎓 Lessons | Computer lessons (Igbo/Pidgin/English) | $20/hour |
+| 🎓 Lessons | Computer lessons (beginners, parents) | $20/hour |
 | | IT career coaching | $25/hour |
 
 **Your highest-value services to push:** the monthly plan (recurring income), business email setup, custom GPT, CCTV remote viewing (families abroad watching homes in Nigeria), and websites.
 
 ## 3. Where to find customers (organic, free)
 
-- Facebook groups: "Nigerians in Japan", "Nigerians in UK", "Nigerians in Canada", "Igbo Union [city]", "Nigerians in Houston/Atlanta/Toronto"
+- Facebook groups: expat and community groups ("Foreigners in Tokyo", "Expats in Japan", "Nigerians in UK/US/Canada", "Africans in Japan", international student groups)
+- Reddit: r/techsupport (help for free, link your page in your profile), r/japanlife, r/movingtojapan
 - WhatsApp: your own contacts + family groups (ask them to forward)
-- Church / Igbo association groups
+- Church, community and association groups
 - Nairaland → Computers section
 
 **Daily target:** post in 2 groups + send 10 personal WhatsApp messages.
@@ -61,9 +62,9 @@ Same list as the landing page. Remove anything you don't want to offer.
 ## 4. Copy-paste messages
 
 ### Facebook group post
-> 🇳🇬💻 **Laptop slow? Virus? Lost files? Router wahala?**
+> 💻 **Laptop slow? Virus? Lost files? Wi-Fi problems?**
 >
-> I'm Eliyah, a Nigerian IT engineer based in Japan. I fix computers **remotely** — wherever you are (UK, US, Canada, Japan, Naija).
+> I'm Eliyah, an IT engineer based in Japan. I fix computers **remotely**, wherever you are in the world.
 >
 > ✅ Virus removal — $25
 > ✅ Windows reinstall — $35
@@ -71,15 +72,12 @@ Same list as the landing page. Remove anything you don't want to offer.
 > ✅ PC tune-up — $20
 >
 > 🎁 **First 15 minutes FREE** — I check the problem before you pay anything.
-> I speak English, Igbo & Pidgin. No jargon.
+> Plain English, no jargon. (I also speak Japanese, Igbo & Ikwere.)
 >
 > 👉 WhatsApp me: https://wa.me/819042818898
 
 ### Personal WhatsApp (friends / family)
-> Hi [Name]! Hope you dey fine 🙏 I've started a remote computer repair service — I fix laptops/PCs over the internet (viruses, slow PC, lost files, Wi-Fi problems). If you or anyone you know has computer wahala, I'll check it free first. Abeg help me share 🙏 https://wa.me/819042818898
-
-### Igbo version
-> Ndewo [Aha]! Amalitela m ọrụ ndozi kọmputa site na ịntanetị — m na-edozi laptop/PC ebe ọ bụla ị nọ. Ọ bụrụ na kọmputa gị nwere nsogbu, m ga-elele ya n'efu mbụ. Biko kesaa 🙏 https://wa.me/819042818898
+> Hi [Name]! Hope you are well 🙏 I've started a remote computer repair service — I fix laptops/PCs over the internet (viruses, slow PC, lost files, Wi-Fi problems). If you or anyone you know has a computer problem, I will check it free first. Please help me share 🙏 https://wa.me/819042818898
 
 ### When a customer replies
 > Thanks for reaching out! 🙏 Tell me:
