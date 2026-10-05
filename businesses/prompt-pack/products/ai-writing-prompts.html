@@ -320,8 +320,9 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Claude Prompt Engineering Pack | Launchpad</p>
+            <p>&copy; <span class="yr"></span> Claude Prompt Engineering Pack | Launchpad</p>
         </div>
     </footer>
+<script>document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear())</script>
 </body>
 </html>

@@ -179,7 +179,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 日本AIツール比較ラボ | <a href="https://robo-co-op.github.io/">Robo Co-op</a></p>
+        <p>&copy; <span class="yr"></span> 日本AIツール比較ラボ | <a href="https://robo-co-op.github.io/">Robo Co-op</a></p>
         <p style="margin-top: 1rem; font-size: 0.9rem;">
             <a href="sitemap.xml">サイトマップ</a> |
             <a href="robots.txt">robots.txt</a> |
@@ -187,5 +187,6 @@
             <a href="#">免責事項</a>
         </p>
     </footer>
+<script>document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear())</script>
 </body>
 </html>

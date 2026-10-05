@@ -1169,7 +1169,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 NaijaBiz Sites. All rights reserved.</p>
+        <p>&copy; <span class="yr"></span> NaijaBiz Sites. All rights reserved.</p>
         <p>
           <span class="footer-flag">🇳🇬</span>
           Built for Nigeria &nbsp;·&nbsp;
@@ -1188,5 +1188,6 @@
     </a>
   </div>
 
+<script>document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear())</script>
 </body>
 </html>

@@ -550,7 +550,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Claude Prompt Engineering Pack | Launchpad</p>
+            <p>&copy; <span class="yr"></span> Claude Prompt Engineering Pack | Launchpad</p>
             <p><a href="https://github.com/robo-co-op/prompt-pack">GitHub Repository</a> | <a href="#faq">よくある質問</a></p>
             <p style="margin-top: 30px; font-size: 0.9em; color: #999;">
                 Created with ❤️ for Japanese entrepreneurs | Powered by Robo Co-op
@@ -567,5 +567,6 @@
             });
         });
     </script>
+<script>document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear())</script>
 </body>
 </html>

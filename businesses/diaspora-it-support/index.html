@@ -166,6 +166,12 @@
 
     /* ─── Services ─── */
     #services { background: var(--off-white); }
+    .service-cat {
+      font-size: 1.25rem; color: var(--green-dark); margin: 44px 0 16px;
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px;
+    }
+    .section-sub + .service-cat { margin-top: 8px; }
+    .service-cat span { font-size: .8rem; font-weight: 500; color: var(--green-mid); background: var(--green-pale); padding: 3px 10px; border-radius: 999px; }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -356,7 +362,7 @@
       <span class="flag">🇳🇬</span>
       Diaspora IT Desk
     </div>
-    <a class="nav-cta" href="#book">Book a Session — $25</a>
+    <a class="nav-cta" href="#book">Book a Free Check</a>
   </nav>
 
   <!-- ── Hero ── -->
@@ -365,7 +371,7 @@
     <h1>Stuck with a tech problem?<br /><span>Get it fixed in plain English.</span></h1>
     <p>Real IT support — explained clearly in <strong>Igbo or English</strong> — from a qualified engineer based in Japan. No jargon. No hassle. Just fixed.</p>
     <div class="hero-ctas">
-      <a class="btn-primary" href="#book">📅 Book a Session — $25</a>
+      <a class="btn-primary" href="#book">📅 Book a Free Check</a>
       <a class="btn-whatsapp" href="https://wa.me/819042818898?text=Hi%2C%20I%20need%20IT%20support" target="_blank" rel="noopener">
         <!-- WhatsApp SVG -->
         <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -386,53 +392,64 @@
   <section id="services">
     <div class="section-inner">
       <p class="section-label">Services &amp; Pricing</p>
-      <h2 class="section-title">What can I fix for you?</h2>
-      <p class="section-sub">Flat-rate sessions — no hidden fees. Pay only after the problem is solved.</p>
+      <h2 class="section-title">What can I do for you?</h2>
+      <p class="section-sub">Free 15-minute check first. You approve the exact price before any work starts — no hidden fees.</p>
+
+      <h3 class="service-cat">💻 Computer Fixes <span>Remote · Worldwide</span></h3>
       <div class="services-grid">
-
-        <div class="service-card">
-          <div class="service-icon">🦠</div>
-          <h3>Virus &amp; Malware Removal</h3>
-          <p>Full scan, clean-up, and browser reset. Your PC protected and running clean again.</p>
-          <span class="service-price">$25</span>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">💿</div>
-          <h3>Windows Reinstall</h3>
-          <p>Fresh OS install with drivers restored. Slow machine? Crashes? Solved.</p>
-          <span class="service-price">$35</span>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">💾</div>
-          <h3>Data Recovery</h3>
-          <p>Recover deleted files, photos, and documents from failing or wiped drives.</p>
-          <span class="service-price">$40</span>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">📡</div>
-          <h3>Router &amp; Network Setup</h3>
-          <p>Get your home Wi-Fi properly configured — fast, secure, no dead zones.</p>
-          <span class="service-price">$20</span>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">📧</div>
-          <h3>Email Migration</h3>
-          <p>Move all your emails, contacts, and calendar from any provider — nothing lost.</p>
-          <span class="service-price">$25</span>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h3>PC Tune-Up</h3>
-          <p>Speed up a sluggish computer — startup clean-up, storage optimisation, and more.</p>
-          <span class="service-price">$20</span>
-        </div>
-
+        <div class="service-card"><div class="service-icon">🦠</div><h3>Virus &amp; Malware Removal</h3><p>Full scan, clean-up, and browser reset. Your PC protected and running clean again.</p><span class="service-price">$25</span></div>
+        <div class="service-card"><div class="service-icon">⚡</div><h3>PC Tune-Up</h3><p>Speed up a slow computer — startup clean-up, storage optimisation, updates.</p><span class="service-price">$20</span></div>
+        <div class="service-card"><div class="service-icon">💿</div><h3>Windows Reinstall</h3><p>Fresh OS install with drivers and your files restored. Crashes and blue screens — solved.</p><span class="service-price">$35</span></div>
+        <div class="service-card"><div class="service-icon">💾</div><h3>Data Recovery</h3><p>Recover deleted files, photos, and documents from failing or wiped drives.</p><span class="service-price">from $40</span></div>
+        <div class="service-card"><div class="service-icon">🧩</div><h3>Software Install &amp; Setup</h3><p>Microsoft Office, Zoom, drivers, antivirus, Mac or Windows — installed and working.</p><span class="service-price">$15</span></div>
+        <div class="service-card"><div class="service-icon">🖨️</div><h3>Printer &amp; Scanner Setup</h3><p>Printer not connecting? Scanner not scanning? Fixed over a remote session.</p><span class="service-price">$15</span></div>
       </div>
+
+      <h3 class="service-cat">📱 Phones &amp; Accounts <span>Remote · Worldwide</span></h3>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">🔐</div><h3>Hacked Account Recovery</h3><p>WhatsApp, Facebook, Instagram, Gmail — I guide you step by step to get it back and lock it down.</p><span class="service-price">$30</span></div>
+        <div class="service-card"><div class="service-icon">📲</div><h3>New Phone Setup &amp; Transfer</h3><p>Move contacts, photos and WhatsApp chats from old phone to new — Android or iPhone.</p><span class="service-price">$20</span></div>
+        <div class="service-card"><div class="service-icon">☁️</div><h3>Backup &amp; Storage Clean-Up</h3><p>"Storage full" fixed. Google Photos / iCloud backup set up so you never lose memories.</p><span class="service-price">$20</span></div>
+        <div class="service-card"><div class="service-icon">📧</div><h3>Email Migration</h3><p>Move all your emails, contacts, and calendar from any provider — nothing lost.</p><span class="service-price">$25</span></div>
+      </div>
+
+      <h3 class="service-cat">🛡️ Network &amp; Security <span>Remote · Worldwide</span></h3>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">📡</div><h3>Router &amp; Wi-Fi Setup</h3><p>Home Wi-Fi properly configured — fast, secure, no dead zones.</p><span class="service-price">$20</span></div>
+        <div class="service-card"><div class="service-icon">🛡️</div><h3>Security Check-Up</h3><p>Password manager, 2-step verification and scam protection for you and your family.</p><span class="service-price">$25</span></div>
+        <div class="service-card"><div class="service-icon">📹</div><h3>CCTV &amp; Smart Camera Setup</h3><p>Watch your home or shop in Nigeria from abroad — camera app and remote viewing configured.</p><span class="service-price">from $35</span></div>
+        <div class="service-card"><div class="service-icon">🏠</div><h3>Smart Home Setup</h3><p>Smart TV, streaming boxes, Alexa/Google Home, smart plugs — connected and working.</p><span class="service-price">$20</span></div>
+      </div>
+
+      <h3 class="service-cat">🔧 Hardware Repair &amp; Upgrades <span>Japan · Mail-in or in person</span></h3>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">🔧</div><h3>Laptop &amp; PC Repair</h3><p>Screen, keyboard, battery, charging port, fan, overheating — diagnosed and repaired.</p><span class="service-price">Free quote</span></div>
+        <div class="service-card"><div class="service-icon">🚀</div><h3>SSD &amp; RAM Upgrade</h3><p>Make an old laptop feel new. Upgrade plus full data transfer. Parts at cost.</p><span class="service-price">from ¥4,000 + parts</span></div>
+        <div class="service-card"><div class="service-icon">🖥️</div><h3>Custom PC Build</h3><p>Gaming, work or editing PC — parts chosen to your budget, built and tested.</p><span class="service-price">from ¥8,000 labour</span></div>
+        <div class="service-card"><div class="service-icon">🎮</div><h3>Console &amp; Phone Repair</h3><p>PlayStation, Switch, phone screens and batteries — quote before any work.</p><span class="service-price">Free quote</span></div>
+      </div>
+
+      <h3 class="service-cat">🏢 Small Business IT <span>Remote · Worldwide</span></h3>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">✉️</div><h3>Business Email &amp; Workspace</h3><p>yourname@yourbusiness.com with Google Workspace or Microsoft 365 — set up and explained.</p><span class="service-price">$50</span></div>
+        <div class="service-card"><div class="service-icon">🌐</div><h3>Business Website</h3><p>Mobile-friendly site with WhatsApp order button, Google Maps and contact form.</p><span class="service-price">from $150</span></div>
+        <div class="service-card"><div class="service-icon">🎨</div><h3>Logo &amp; Graphic Design</h3><p>Logo, flyers, social media graphics, business cards — print-ready files.</p><span class="service-price">from $40</span></div>
+        <div class="service-card"><div class="service-icon">🗓️</div><h3>Monthly IT Support Plan</h3><p>Your on-call IT person: up to 2 hours of remote fixes every month, priority response.</p><span class="service-price">$30/month</span></div>
+      </div>
+
+      <h3 class="service-cat">🤖 AI &amp; ChatGPT <span>Remote · Worldwide</span></h3>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">💬</div><h3>ChatGPT Setup &amp; Training</h3><p>1-hour personal session: write emails, CVs and letters, translate, plan — the smart way.</p><span class="service-price">$30</span></div>
+        <div class="service-card"><div class="service-icon">📈</div><h3>AI for Your Business</h3><p>Use ChatGPT for customer replies, product descriptions, flyers and WhatsApp templates.</p><span class="service-price">$60</span></div>
+        <div class="service-card"><div class="service-icon">🧠</div><h3>Custom GPT Assistant</h3><p>A personal AI assistant loaded with your business info — answers customer questions 24/7.</p><span class="service-price">from $80</span></div>
+      </div>
+
+      <h3 class="service-cat">🎓 Lessons &amp; Coaching <span>Remote · Worldwide</span></h3>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">👵</div><h3>Computer Lessons</h3><p>Patient 1-on-1 lessons for parents and beginners — in Igbo, Pidgin or English.</p><span class="service-price">$20/hour</span></div>
+        <div class="service-card"><div class="service-icon">🧑‍💻</div><h3>IT Career Coaching</h3><p>Want to work in tech? Roadmap, CV review and interview prep from a working engineer.</p><span class="service-price">$25/hour</span></div>
+      </div>
+
     </div>
   </section>
 
@@ -544,8 +561,9 @@
     <div class="footer-flags">🇳🇬 🇯🇵</div>
     <p><strong>Diaspora IT Desk</strong> — Remote tech support for Nigerians abroad</p>
     <p style="margin-top:6px;">Based in Japan &nbsp;·&nbsp; Serving diaspora worldwide &nbsp;·&nbsp; English &amp; Igbo support</p>
-    <p style="margin-top:14px; font-size:.78rem; opacity:.55;">© 2025 Diaspora IT Desk. Part of the MightyEliyah StartupRobos portfolio.</p>
+    <p style="margin-top:14px; font-size:.78rem; opacity:.55;">© <span class="yr"></span> Diaspora IT Desk. Part of the MightyEliyah StartupRobos portfolio.</p>
   </footer>
 
+<script>document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear())</script>
 </body>
 </html>
